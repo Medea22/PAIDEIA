@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>User - Paideia Library</title>
+    </head>
+    
+    <style> body {
+    background-image: linear-gradient(to right, rgb(2, 41, 51) , rgb(26, 121, 138));
+    color: whitesmoke;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }</style>
+
+    <style> input {font-size: 8pt; margin-left: 1cm} </style>
+    <style> h1 {font-size: 30pt; margin-left: 1cm} </style>
+    <style> p {margin-left: 1cm} </style>
+    <style> img {margin-left: 1cm} </style>
+    <style> table {margin-left: 1cm} </style>
+    <style> label {margin-left: 1cm} </style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Paideia Library</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="http://127.0.0.1:5000/">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://127.0.0.1:5000/seats">Find seat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://127.0.0.1:5000/books">Find book</a>
+              <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5000/suggestions">Book suggestions</a>
+              </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5000/user">User<span class="sr-only">(current)</span></a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+    <br>
+    <h1>PAIDEIA LIBRARY - User profile</h1>
+        <!-- <p> Login for user data</p> -->
+        <br>
+        <div class="content">
+
+          <form method="POST">
+              <label>Student ID</label>
+              <input type="number" name="student_id" id="input" placeholder="ID">
+              <label>Password</label>
+              <input type ="password" name ="password" placeholder="password"> 
+              <!-- <input type="password" name="password" id="input" placeholder="password"> -->
+              <input type="submit" value="Login" id="input">
+          </form>
+      </div>
+    
+      {% if login %}
+        <br>
+        <p> Login successful!</p>
+        <br>
+        <p style="font-size: 14pt">Welcome back, Medea!</p>
+        <br>
+        <p>Current seat: no seat</p>
+        <p>Books borrowed: none</p>
+        <p>Unread emails: 0</p>
+        <p>Total time spent: 26 hour 58 minutes</p>
+        <br>
+        <br>
+        <p>Favourite seats: 68, 77, 89 </p>
+        <p>Favourite genre: X</p>
+      <!-- <p>{{chair}}</p> -->
+      {% endif %}
+
+      {% if failed %}
+        <br>
+        <p> Login failed! Please try again!</p>
+      <!-- <p>{{chair}}</p> -->
+      {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
+</body>
+</html>

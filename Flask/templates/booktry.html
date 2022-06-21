@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static\style.css" />
+    <title>Seat Booking</title>
+  </head>
+
+  <style> body {
+    background-image: linear-gradient(to right,rgb(2, 41, 51) , rgb(26, 121, 138));
+    color: whitesmoke;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }</style>
+
+  <style> .child {float: left; width: 50%;}</style>
+
+  <body>
+    <!-- <div class="topnav">
+      <a href="http://127.0.0.1:5000/">Paideia Library</a>
+      <a href="http://127.0.0.1:5000/">Home</a>
+      <a href="http://127.0.0.1:5000/seats">Find seat</a>
+      <a href="http://127.0.0.1:5000/books">Find book</a>
+      <a href="http://127.0.0.1:5000/user">User</a>
+    </div> -->
+    <br>
+    <br>
+
+    <section class="parent">
+     <section class="child">
+      <form method="POST">
+      <div class="time-container">
+        <label> Select a time:</label>
+          <input type="number" id="hour" name="hour" placeholder="Hour"
+          min="0" max="100" autocomplete="off">
+          <input type="number" id="minute" name="minute" placeholder="Minute"
+          min="0" max="60" autocomplete="off">
+          <input type="number" id="second" name="second" placeholder="Second"
+          min="5" max="60" autocomplete="off">
+      </div>
+
+      <div class="seat-book-container">
+          <label> Select the seat: </label>
+          <input type="text" id="seatno" name="seatno" placeholder="Seat Number"autocomplete="off" > 
+      </div>
+
+      <div class="button-container">
+          <button class="btn" value="submit" type="submit">Book</button> 
+      </div>
+      </form>
+
+
+      <ul class="showcase">
+        <li>
+          <div class='empty'></div>
+          <small>Available</small>
+        </li>
+        <li>
+          <div class="taken"></div>
+          <small>Booked</small>
+        </li>
+      </ul>
+      <div class="container">
+      <div class="row">
+      {% for index,row in seats[:10].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div>
+
+      <div class="row">
+      {% for index,row in seats[10:20].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+
+      <div class="row">
+      {% for index,row in seats[20:30].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+
+      <div class="row">
+      {% for index,row in seats[30:40].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+
+      <div class="row">
+      {% for index,row in seats[40:50].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+
+      <div class="row">
+      {% for index,row in seats[50:60].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+
+      <div class="row">
+      {% for index,row in seats[60:70].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+
+      <div class="row">
+      {% for index,row in seats[70:80].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+
+      <div class="row">
+      {% for index,row in seats[80:90].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+      
+      <div class="row">
+      {% for index,row in seats[90:100].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+
+      <div class="row">
+      {% for index,row in seats[100:].iterrows() %}
+          <div class="{{ row['taken']}}">{{row['ID']}}</div>
+      {% endfor %}
+      </div> 
+    </section>
+
+    <section class="child">
+      <img src="static/Screenshot 2022-06-09 at 17.14.28.png" alt="layout first floor" width = 400 height=300>
+      <img src="static/Screenshot 2022-06-09 at 17.14.40.png" alt="layout first floor" width = 400 height=300>
+    </section>
+  </section>
+
+  </body>
+  {% if chair %}
+  <p> Your optimal seats are:</p>
+  <p>{{chair}}</p>
+  {% endif %}
+</html>
+
